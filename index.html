@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AwesomeBooks</title>
 </head>
+
 <body>
-    
+    <h1>Awesome Books</h1>
+    <!-- global book container -->
+    <div>
+        <!-- list of books -->
+        <div>
+            <p class="book-title">Title</p>
+            <p class="book-author">Author</p>
+
+            <button class="btn remove" id="remove">Remove</button>
+        </div>
+        <hr>
+        <div>
+
+            <p class="book-title">Title</p>
+            <p class="book-author">Author</p>
+
+            <button class="btn remove" id="remove">Remove</button>
+            <hr>
+        </div>
+
+
+    </div>
+
+    <form>
+        <input id="title" type="text" placeholder="Title" class="input-field" required /> <br> <br>
+        <input id="author" type="text" placeholder="Author" class="input-field" required /> <br> <br>
+
+        <button type="submit" id="submit-btn" class="btn submit">Add</button>
+    </form>
+
+    <script src="./scripts/app.js"></script>
 </body>
+
 </html>
