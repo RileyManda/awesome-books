@@ -9,7 +9,7 @@
 
 <!-- TABLE OF CONTENTS -->
 
-# 📗 Table of Contents
+# <b>Table of Contents 📋
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
@@ -30,77 +30,85 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
-
+</b>
+<hr><hr>
 <!-- PROJECT DESCRIPTION -->
-# 📖 [Awesome Books] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+# <b>Awesome Books  📖</b><a name="about-project"></a>
 
-**[awesome-books]** is a simple website that displays a list of books and allows you to add and remove books from that list.
+**Awesome Books** is a simple website that displays a list of books and allows you to add and remove books from that list.
+<br><hr>
 
-## 🛠 Built With <a name="built-with"></a>
+<!-- BUILT WITH -->
+## <b>Built With 🛠</b><a name="built-with"></a><br>
 
-### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
+<!-- TECH STACK -->
+### <b>Tech Stack 🗜️</b><a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">Javascript</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML5</a> markup to build raw structure of this web page</li><br>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS3</a> custom properties, <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">FlexBox</a>, <a href="">Grid</a> to make the website visually attractive</li><br>
+    <li><a href="https://reactjs.org/">Javascript</a></li><br>
+    <li><a href="https://mozilla.github.io/addons-linter/">Linters</a> for coding convention and coding formating</li>
   </ul>
 </details>
 
 <details>
   <summary>Javascript runtime environment</summary>
   <ul>
-    <li><a href="https://nodejs.org/en/">Node JS</a></li>
+    <li><a href="">Node JS</a> as a javascript runtime machine [git], a free and open source distributed version control system</li>
   </ul>
 </details>
 
-<!-- Features -->
+<details>
+  <summary>Deployement</summary>
+  <ul>
+    <li><a href="#deployment">GitHub Pages</a></li>
+  </ul>
+</details>
 
-### Key Features <a name="key-features"></a>
+<br><hr>
 
-> Describe between 1-3 key features of the application.
+<!-- KEY FEATURES -->
+### <b>Key Features 🏷️</b> <a name="key-features"></a>
 
-- **[Manage books collection]**
-- **[Remove Books]**
-- **[Add Books]**
+- **Manage books collection**
+- **Remove Books**
+- **Add Books**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br><hr>
 
 <!-- LIVE DEMO -->
+## <b>Live Demo 🚀</b><a name="live-demo"></a>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<hr>
 
-<!-- GETTING STARTED -->
-
-## 💻 Getting Started <a name="getting-started"></a>
+<!-- GET STARTED -->
+## <b>Getting Started 💻</b><a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
 
-### Prerequisites
+<!-- PREREQUISITIES -->
+### <b>Prerequisites 🧱</b><a name="prerequisites"></a>
 
 In order to run this project you need:
 
--A Git hub account
-<br>
--Node JS
-<br>
--Visual Studio Code or other code editor.
-<br>
--web browser
+- A Github account
+- Node JS
+- A web browser to view output e.g [Microsoft Edge](https://www.microsoft.com/en-us/edge).
+- An IDE e.g [Visual studio code](https://code.visualstudio.com/).
+- [A terminal](https://code.visualstudio.com/docs/terminal/basics).
 
-### Setup
+<br><hr>
 
-Clone this repository to your desired folder:
+<!-- SETUP -->
+### <b>Setup ⚙️</b><a name="setup"></a>
 
 Clone this repository to your desired folder:<br>
 ```sh
@@ -108,67 +116,89 @@ Clone this repository to your desired folder:<br>
   git clone https://github.com/RileyManda/awesome-books.git
 
   ```
-### Install
+  - Navigate to the folder
+```
+cd my-folder
+```
+- Checkout the branch
+```
+git checkout main
+```
+<br><hr>
 
-Install this project with:
+<!-- INSTALL -->
+### <b>Install 🏗️</b><a name="install"></a>
 
-<!--
-Example command:
+Install all dependencies:
 
 ```sh
-  cd my-project
-  gem install
+    npm install
 ```
---->
+<br><hr>
 
-### Usage
+<!-- USAGE -->
+### <b>Usage 📂</b><a name="usage"></a>
 
-To run the project, execute the following command:
+To run the project, follow these instructions:
 
-<!--
-Example command:
-
-```sh
-  rails server
+- You have to clone this repo to your local machine.
 ```
---->
+git clone https://github.com/RileyManda/awesome-books.git
+```
 
-### Run tests
+<!-- TESTS -->
+<br><hr>
+### <b>Run tests 🧪</b><a name="run-tests"></a>
 
+How should it be tested? 
 To run tests, run the following command:
 
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
+- HTML linter errors run:
 
 ```
- -->
+npx hint . --fix
+```
+
+- CSS linter errors run:
+
+```
+npx stylelint "**/*.{css,scss}" --fix
+```
+
+- JavaScript linter errors run:
+
+```
+npx eslint . --fix
+```
+
+- For unit testing, run:
+
+```
+npm test
+```
+<br><hr>
+
+<!-- DEPLOYEMENT -->
+### <b>Deployment</b> <a name="deployment"></a>
+
+You can deploy this project using: GitHub Pages, [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/).
+
+This project was deployed using GitHub Pages. For more information about how to use GitHub pages [read here](https://www.w3schools.com/git/git_remote_pages.asp?remote=github) 🤩. If you want to watch a video about how to use GitHub pages instead of reading [click here](https://www.youtube.com/watch?v=QyFcl_Fba-k&t=251s) ☺️.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
+<br><hr>
 
+<!-- AUTHORS -->
 ## 👥 Authors <a name="authors"></a>
 
 > Mention all of the collaborators of this project.
 
 👤 **Nelly Telli**
-- GitHub: [@githubhandle](https://github.com/lily4178993)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@lily4178993](https://github.com/lily4178993/)
+- Twitter: [@nelly_telli](https://twitter.com/nelly_telli)
+- LinkedIn: [Nelly T.](https://www.linkedin.com/in/nelly-t-330414266/)
 
 👤 **Riley Manda**
 
@@ -178,67 +208,70 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<br><hr>
+
 <!-- FUTURE FEATURES -->
+## <b>Future Features 🔭</b><a name="future-features"></a>
 
-## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Add a new book to the collection**
+- [ ] **Display all books saved in the collection**
+- [ ] **Remove a book from the collection**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<br><hr>
 <!-- CONTRIBUTING -->
 
-## 🤝 Contributing <a name="contributing"></a>
+## <b>Contributing 🤝</b><a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
+If you have suggestions 📝, ideas 🤔, or bug reports 🐛, please feel free to open an [issue](https://github.com/RileyManda/awesome-books/issues) on GitHub.
+Remember, every contribution, no matter how big or small, makes a difference.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br><hr>
 
 <!-- SUPPORT -->
+## <b>Show your support 🌟</b><a name="support"></a>
 
-## ⭐️ Show your support <a name="support"></a>
+Thank you for taking the time to explore our GitHub project! Your support means a lot to us. If you find our project valuable and would like to contribute, here are a few ways you can support us:
 
-> Write a message to encourage readers to support your project
+ - <b>Star the project ⭐️</b>: Show your appreciation by starring this GitHub repository. It helps increase visibility and lets others know that the project is well-received.
 
-If you like this project...
+ - <b>Fork the project 🍴 🎣</b>: If you're interested in making improvements or adding new features, feel free to fork the project. You can work on your own version and even submit pull requests to suggest changes.
+
+ - <b>Share with others 🗺️</b>: Spread the word about this project. Share it on social media, mention it in relevant forums or communities, or recommend it to colleagues and friends who might find it useful.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br><hr>
 
 <!-- ACKNOWLEDGEMENTS -->
+## <b>Acknowledgments 🙏</b><a name="acknowledgements"></a>
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+We would like to express our sincere gratitude to [Microverse](https://github.com/microverseinc), the dedicated reviewers, and collaborarors. Your unwavering support, feedbacks, and collaborative efforts have played an immense role in making this journey a resounding success. Thank you for being an integral part of our achievements.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br><hr>
 
 <!-- FAQ (optional) -->
+## <b>FAQ ❓</b><a name="faq"></a>
 
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
+- **Question_1**
+  Do I have to use the vs code specifically?
+  - Answer_1
+    You can use any code editor of your choice. <br>
+- **Question_2**
+  Where can I download node JS for installation?
+  - Answer_2
+  Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+  It can be downloaded here: https://nodejs.org/en/download/Node.jsNode.js
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
+<!-- LICENCE -->
+## <b>License 📝</b><a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 
