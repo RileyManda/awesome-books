@@ -12,7 +12,7 @@
 <body>
     <h1>Awesome Books</h1>
     <!-- global book container -->
-    <div class="books-container"></div>
+    <div class="books-container" id="books-container"></div>
 
     <form>
         <input id="title" type="text" placeholder="Title" class="input-field" required /> <br> <br>
@@ -21,7 +21,9 @@
         <button type="submit" id="submit-btn" class="btn submit">Add</button>
     </form>
 
-    <script src="./scripts/app.js"></script>
+    <script type="module" src="./scripts/storage.js"></script>
+    <script type="module" src="./scripts/app.js"></script>
+
 </body>
 
 </html>
