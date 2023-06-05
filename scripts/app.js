@@ -1,58 +1,79 @@
-// empty j file for awesome books scripts
-const booksCollection = [
-  {
-    title: 'JavaScript The Good Parts',
-    author: 'David Flanagan',
-  },
-  {
-    title: 'Beginning JavaScript',
-    author: 'Paul Wilton et all',
-  },
-  {
-    title: 'JavaScript and jQuery',
-    author: 'Jon Duckett',
-  },
-  {
-    title: 'Remove Author Test',
-    author: 'Remove Test',
-  },
-];
+import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 // Get the books container
 const bookContainer = document.querySelector('.books-container');
 
-// Function to display book
-const bookElements = booksCollection.map((book) => {
-  const bookElement = document.createElement('div');
-  bookElement.classList.add('book');
+// Retrieve books from local storage or use the default collection
+let booksCollection = getBooksFromStorage();
+if (booksCollection.length === 0) {
+  booksCollection = [
+    {
+      title: 'JavaScript The Good Parts',
+      author: 'David Flanagan',
+    },
+    {
+      title: 'Beginning JavaScript',
+      author: 'Paul Wilton et all',
+    },
+    {
+      title: 'JavaScript and jQuery',
+      author: 'Jon Duckett',
+    },
+    {
+      title: 'Test',
+      author: 'TestAuthor',
+    },
+  ];
+}
 
-  const titleElement = document.createElement('p');
-  titleElement.classList.add('book-title');
-  titleElement.textContent = book.title;
+// Function to add book elements to the container
+function addBookElementsToContainer() {
+  bookContainer.innerHTML = ''; // Clear the container
 
-  const authorElement = document.createElement('p');
-  authorElement.classList.add('book-author');
-  authorElement.textContent = book.author;
+  const bookElements = booksCollection.map((book) => {
+    const bookElement = document.createElement('div');
+    bookElement.classList.add('book');
 
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('btn', 'remove');
-  removeButton.textContent = 'Remove';
+    const titleElement = document.createElement('p');
+    titleElement.classList.add('book-title');
+    titleElement.textContent = book.title;
 
-  removeButton.addEventListener('click', () => {
-    // Traverse up the DOM to find the parent book element
-    const parentBookElement = removeButton.closest('.book');
-    if (parentBookElement) {
-      bookContainer.removeChild(parentBookElement);
-    }
+    const authorElement = document.createElement('p');
+    authorElement.classList.add('book-author');
+    authorElement.textContent = book.author;
+
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('btn', 'remove');
+    removeButton.textContent = 'Remove';
+
+    removeButton.addEventListener('click', () => {
+      // Traverse up the DOM to find the parent book element
+      const parentBookElement = removeButton.closest('.book');
+      if (parentBookElement) {
+        bookContainer.removeChild(parentBookElement);
+
+        // Remove the book from the collection
+        const bookIndex = booksCollection.indexOf(book);
+        if (bookIndex !== -1) {
+          booksCollection.splice(bookIndex, 1);
+          saveBooksToStorage(booksCollection);
+        }
+      }
+    });
+
+    bookElement.appendChild(titleElement);
+    bookElement.appendChild(authorElement);
+    bookElement.appendChild(removeButton);
+
+    return bookElement;
   });
 
-  bookElement.appendChild(titleElement);
-  bookElement.appendChild(authorElement);
-  bookElement.appendChild(removeButton);
+  bookElements.forEach((bookElement) => {
+    bookContainer.appendChild(bookElement);
+  });
+}
 
-  return bookElement;
-});
+// Call the function to add the book elements to the container
+addBookElementsToContainer();
 
-bookElements.forEach((bookElement) => {
-  bookContainer.appendChild(bookElement);
-});
+document.addEventListener('DOMContentLoaded', addBookElementsToContainer);
