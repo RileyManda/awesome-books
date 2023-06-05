@@ -1,22 +1,23 @@
 import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
-const dataSaved = getBooksFromStorage();
-const bookContainer = document.querySelector('.books-container');
-const form = document.querySelector('form');
-const titleInput = document.getElementById('title');
-const authorInput = document.getElementById('author');
-let booksCollection = [];
+let books = [];
+let nextBookId = 1;
 
-if (dataSaved) {
-  booksCollection = dataSaved;
-} else {
-  booksCollection = [];
-}
+const addBook = (title, author) => {
+  const newBook = { id: nextBookId, title, author };
+  books.push(newBook);
+  nextBookId += 1;
+};
 
-function addBookElementsToContainer() {
+const removeBook = (bookID) => {
+  books = books.filter((book) => book.id !== bookID);
+};
+
+const displayBooks = () => {
+  const bookContainer = document.querySelector('.books-container');
   bookContainer.innerHTML = '';
 
-  const bookElements = booksCollection.map((book) => {
+  books.forEach((book) => {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
 
@@ -33,49 +34,44 @@ function addBookElementsToContainer() {
     removeButton.textContent = 'Remove';
 
     removeButton.addEventListener('click', () => {
-      const parentBookElement = removeButton.closest('.book');
-      if (parentBookElement) {
-        bookContainer.removeChild(parentBookElement);
-
-        const bookIndex = booksCollection.indexOf(book);
-        if (bookIndex !== -1) {
-          booksCollection.splice(bookIndex, 1);
-          saveBooksToStorage(booksCollection);
-        }
-      }
+      removeBook(book.id);
+      saveBooksToStorage(books);
+      displayBooks();
     });
-
-    bookElement.appendChild(titleElement);
-    bookElement.appendChild(authorElement);
-    bookElement.appendChild(removeButton);
 
     const hrElement = document.createElement('hr');
     hrElement.classList.add('divider');
     bookElement.appendChild(hrElement);
 
-    return bookElement;
-  });
+    bookElement.appendChild(titleElement);
+    bookElement.appendChild(authorElement);
+    bookElement.appendChild(removeButton);
+    bookElement.appendChild(hrElement);
 
-  bookElements.forEach((bookElement) => {
     bookContainer.appendChild(bookElement);
   });
-}
+};
 
-addBookElementsToContainer();
+document.addEventListener('DOMContentLoaded', () => {
+  books = getBooksFromStorage() || [];
+  nextBookId = books.length > 0 ? Math.max(...books.map((book) => book.id)) + 1 : 1;
+  displayBooks();
+});
 
-document.addEventListener('DOMContentLoaded', addBookElementsToContainer);
-
+const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
+  const titleInput = document.getElementById('title');
+  const authorInput = document.getElementById('author');
   const title = titleInput.value;
   const author = authorInput.value;
 
   if (title && author) {
-    const newBook = { title, author };
-    booksCollection.push(newBook);
-    saveBooksToStorage(booksCollection);
-    addBookElementsToContainer();
+    addBook(title, author);
+    saveBooksToStorage(books);
+    displayBooks();
+
     titleInput.value = '';
     authorInput.value = '';
   }
