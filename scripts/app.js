@@ -1,4 +1,5 @@
 import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
+
 const dataSaved = getBooksFromStorage();
 const bookContainer = document.querySelector('.books-container');
 const form = document.querySelector('form');
@@ -59,4 +60,3 @@ form.addEventListener('submit', (event) => {
     authorInput.value = '';
   }
 });
-const storedBooks = getBooksFromStorage();

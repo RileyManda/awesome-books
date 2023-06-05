@@ -8,7 +8,4 @@ export function getBooksFromStorage() {
 export function saveBooksToStorage(books) {
   localStorage.setItem(storageKey, JSON.stringify(books));
 }
-
 // Retrieve books from local storage
-const storedBooks = getBooksFromStorage();
-console.log('Stored Books:', storedBooks);
