@@ -1,10 +1,11 @@
-import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
+import { saveBooksToStorage } from './storage.js';
 
+const dataSaved = JSON.parse(localStorage.getItem('books'));
 // Get the books container
 const bookContainer = document.querySelector('.books-container');
 
 // Retrieve books from local storage or use the default collection
-let booksCollection = getBooksFromStorage();
+let booksCollection = [];
 if (booksCollection.length === 0) {
   booksCollection = [
     {
@@ -20,10 +21,21 @@ if (booksCollection.length === 0) {
       author: 'Jon Duckett',
     },
     {
+      title: 'JavaScript and jQuery3',
+      author: 'Jon Duckett3',
+    },
+    {
+      title: 'JavaScript and jQuery3',
+      author: 'Jon Duckett3',
+    },
+    {
       title: 'Test',
-      author: 'TestAuthor',
+      author: 'Jon Duckett3',
     },
   ];
+} else {
+  booksCollection = [];
+  booksCollection.push(dataSaved);
 }
 
 // Function to add book elements to the container
@@ -77,3 +89,7 @@ function addBookElementsToContainer() {
 addBookElementsToContainer();
 
 document.addEventListener('DOMContentLoaded', addBookElementsToContainer);
+
+// Retrieve books from local storage
+// const storedBooks = getBooksFromStorage();
+// console.log('Stored Books:', storedBooks);
