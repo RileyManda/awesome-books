@@ -51,13 +51,15 @@ class BookCollection {
 
   saveData = document.addEventListener('DOMContentLoaded', () => {
     this.books = getBooksFromStorage() || [];
-    this.nextBookId = this.books.length > 0
-      ? Math.max(...this.books.map((book) => book.id)) + 1 : 1;
+    this.nextBookId =
+      this.books.length > 0
+        ? Math.max(...this.books.map((book) => book.id)) + 1
+        : 1;
     // displayBooks();
   });
 }
 const newBook = new BookCollection();
-newBook.addBook('Book2', 'Author2')
+newBook.addBook('Book3', 'Author3');
 console.log('our books', newBook);
 newBook.displayBooks();
 newBook.saveData();
