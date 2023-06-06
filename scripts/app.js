@@ -1,62 +1,74 @@
 import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
-let books = [];
-let nextBookId = 1;
+class BookCollection {
+  constructor() {
+    this.books = [];
+    this.nextBookId = 1;
+  }
 
-const addBook = (title, author) => {
-  const newBook = { id: nextBookId, title, author };
-  books.push(newBook);
-  nextBookId += 1;
-};
+  // Add book method
+  addBook(title, author) {
+    const newBook = { id: this.nextBookId, title, author };
+    this.books.push(newBook);
+    this.nextBookId += 1;
+  }
 
-const removeBook = (bookID) => {
-  books = books.filter((book) => book.id !== bookID);
-};
-
-const displayBooks = () => {
-  const bookContainer = document.querySelector('.books-container');
-  bookContainer.innerHTML = '';
-
-  books.forEach((book) => {
-    const bookElement = document.createElement('div');
-    bookElement.classList.add('book');
-
-    const titleElement = document.createElement('p');
-    titleElement.classList.add('book-title');
-    titleElement.textContent = book.title;
-
-    const authorElement = document.createElement('p');
-    authorElement.classList.add('book-author');
-    authorElement.textContent = book.author;
-
-    const removeButton = document.createElement('button');
-    removeButton.classList.add('btn', 'remove');
-    removeButton.textContent = 'Remove';
-
-    removeButton.addEventListener('click', () => {
-      removeBook(book.id);
-      saveBooksToStorage(books);
-      displayBooks();
+  // Save data to the local storage
+  saveData() {
+    document.addEventListener('DOMContentLoaded', () => {
+      this.books = getBooksFromStorage() || [];
+      this.nextBookId = this.books.length > 0
+        ? Math.max(...this.books.map((book) => book.id)) + 1
+        : 1;
+      this.displayBooks();
     });
+  }
 
-    const hrElement = document.createElement('hr');
-    hrElement.classList.add('divider');
-    bookElement.appendChild(hrElement);
+  // Remove book method
+  removeBook(bookID) {
+    this.books = this.books.filter((book) => book.id !== bookID);
+  }
 
-    bookElement.appendChild(titleElement);
-    bookElement.appendChild(authorElement);
-    bookElement.appendChild(removeButton);
-    bookElement.appendChild(hrElement);
+  // Display books method
+  displayBooks() {
+    const bookContainer = document.querySelector('.books-container');
+    bookContainer.innerHTML = '';
+    this.books.forEach((book) => {
+      const bookElement = document.createElement('div');
+      bookElement.classList.add('book');
+      const bookItemElement = document.createElement('div');
+      bookItemElement.classList.add('book-item');
+      const titleElement = document.createElement('p');
+      titleElement.classList.add('book-title');
+      titleElement.textContent = book.title;
+      const authorElement = document.createElement('p');
+      authorElement.classList.add('book-author');
+      authorElement.textContent = book.author;
+      const removeButton = document.createElement('button');
+      removeButton.classList.add('btn', 'remove');
+      removeButton.textContent = 'Remove';
+      removeButton.addEventListener('click', () => {
+        this.removeBook(book.id);
+        saveBooksToStorage(this.books);
+        this.displayBooks();
+      });
 
-    bookContainer.appendChild(bookElement);
-  });
-};
+      bookItemElement.appendChild(titleElement);
+      bookItemElement.appendChild(authorElement);
 
-document.addEventListener('DOMContentLoaded', () => {
-  books = getBooksFromStorage() || [];
-  nextBookId = books.length > 0 ? Math.max(...books.map((book) => book.id)) + 1 : 1;
-  displayBooks();
-});
+      bookElement.appendChild(bookItemElement);
+      bookElement.appendChild(removeButton);
+
+      bookContainer.appendChild(bookElement);
+    });
+  }
+}
+
+const newBook = new BookCollection();
+newBook.addBook('Book3', 'Author3');
+newBook.displayBooks();
+newBook.saveData();
+console.log('our books', newBook);
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
@@ -68,9 +80,9 @@ form.addEventListener('submit', (event) => {
   const author = authorInput.value;
 
   if (title && author) {
-    addBook(title, author);
-    saveBooksToStorage(books);
-    displayBooks();
+    newBook.addBook(title, author);
+    saveBooksToStorage(newBook.books);
+    newBook.displayBooks();
 
     titleInput.value = '';
     authorInput.value = '';
