@@ -2,23 +2,23 @@ import { getBooksFromStorage } from './storage.js';
 // import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 class BookCollection {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-    return getBooksFromStorage();
+  constructor() {
+    this.books = [];
+    this.nextBookId = 1;
   }
+
+  // Add book method
+  addBook (title, author) {
+    const newBook = { id: this.nextBookId, title, author };
+    this.books.push(newBook);
+    this.nextBookId += 1;
+  };
 }
 const newBook = new BookCollection();
+newBook.addBook('Book1', 'Author1')
 console.log('our books', newBook);
 // let books = [];
 // let nextBookId = 1;
-
-// const addBook = (title, author) => {
-//   const newBook = { id: nextBookId, title, author };
-//   books.push(newBook);
-//   nextBookId += 1;
-// };
-
 // const removeBook = (bookID) => {
 //   books = books.filter((book) => book.id !== bookID);
 // };
