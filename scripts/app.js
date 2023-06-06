@@ -36,6 +36,8 @@ class BookCollection {
     this.books.forEach((book) => {
       const bookElement = document.createElement('div');
       bookElement.classList.add('book');
+      const bookItemElement = document.createElement('div');
+      bookItemElement.classList.add('book-item');
       const titleElement = document.createElement('p');
       titleElement.classList.add('book-title');
       titleElement.textContent = book.title;
@@ -50,13 +52,13 @@ class BookCollection {
         saveBooksToStorage(this.books);
         this.displayBooks();
       });
-      const hrElement = document.createElement('hr');
-      hrElement.classList.add('divider');
-      bookElement.appendChild(hrElement);
-      bookElement.appendChild(titleElement);
-      bookElement.appendChild(authorElement);
+
+      bookItemElement.appendChild(titleElement);
+      bookItemElement.appendChild(authorElement);
+
+      bookElement.appendChild(bookItemElement);
       bookElement.appendChild(removeButton);
-      bookElement.appendChild(hrElement);
+
       bookContainer.appendChild(bookElement);
     });
   }
@@ -86,3 +88,8 @@ form.addEventListener('submit', (event) => {
     authorInput.value = '';
   }
 });
+
+const newBook2 = new BookCollection();
+newBook2.addBook('Book4', 'Author4');
+newBook2.displayBooks();
+newBook2.saveData();

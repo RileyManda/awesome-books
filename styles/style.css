@@ -2,12 +2,68 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin-top: 10px;
-  margin-left: 2px;
 }
 
-.divider {
-  margin-top: 10px;
-  border: none;
-  border-top: 1px solid #ccc;
+h1 {
+  font-weight: normal;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1em;
+}
+
+.books-container {
+  border: 2px solid #2d2c2c;
+  width: 80vw;
+  max-width: 900px;
+}
+
+.book {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  width: 100%;
+  min-width: 300px;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.book:nth-child(odd) {
+  background-color: grey;
+}
+
+.book-item {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  gap: 2px;
+}
+
+.remove {
+  justify-self: flex-end;
+}
+
+.book-title {
+  position: relative;
+}
+
+.book-title::before {
+  position: absolute;
+  content: '"';
+  left: -8px;
+  top: -1%;
+}
+
+.book-title::after {
+  position: absolute;
+  content: '"';
+  right: -8px;
+  top: -1%;
+}
+
+.book-author::before {
+  position: absolute;
+  content: "by";
+  left: -30px;
+}
+
+.book-author {
+  position: relative;
 }
