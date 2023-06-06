@@ -88,8 +88,3 @@ form.addEventListener('submit', (event) => {
     authorInput.value = '';
   }
 });
-
-const newBook2 = new BookCollection();
-newBook2.addBook('Book4', 'Author4');
-newBook2.displayBooks();
-newBook2.saveData();
