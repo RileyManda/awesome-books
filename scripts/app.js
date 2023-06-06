@@ -3,38 +3,41 @@ import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 class BookCollection {
   constructor() {
-    this.books = [];
+    // Retrieve books from localStorage or initialize an empty array
+    this.books = saveBooksToStorage(this.books) || [];
     this.nextBookId = 1;
+    
   }
 
-  // Add book method
+  // Method to add a book from the collection
   addBook(title, author) {
-    const newBook = { id: this.nextBookId, title, author };
+    const newBook = { 
+      id: this.nextBookId, 
+      title, 
+      author 
+    };
+
     this.books.push(newBook);
     this.nextBookId += 1;
-  }
-  
-  // Save data to the local storage
-  saveData() {
-    document.addEventListener('DOMContentLoaded', () => {
-    this.books = getBooksFromStorage() || [];
-    this.nextBookId = this.books.length > 0
-      ? Math.max(...this.books.map((book) => book.id)) + 1
-      : 1;
-    this.displayBooks();
-  });
-}
 
-  // Remove book method
+    // Save the updated collection to localStorage
+    saveBooksToStorage(this.books);
+  }
+
+  // Method to remove a book from the collection
   removeBook(bookID) {
+    // Remove the book at the specified index from the collection
     this.books = this.books.filter((book) => book.id !== bookID);
+
+    // Save the updated collection to localStorage
+    saveBooksToStorage(bookID);
   }
 
 // Display books method
 displayBooks() {
   const bookContainer = document.querySelector('.books-container');
   bookContainer.innerHTML = '';
-  this.books.forEach((book) => {
+  this.books.forEach((book, index) => {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
     const titleElement = document.createElement('p');
@@ -43,14 +46,18 @@ displayBooks() {
     const authorElement = document.createElement('p');
     authorElement.classList.add('book-author');
     authorElement.textContent = book.author;
+
+    // Create a remove button
     const removeButton = document.createElement('button');
     removeButton.classList.add('btn', 'remove');
     removeButton.textContent = 'Remove';
+    removeButton.setAttribute('data-book-index', index);
     removeButton.addEventListener('click', () => {
       this.removeBook(book.id);
       saveBooksToStorage(this.books);
       this.displayBooks();
     });
+
     const hrElement = document.createElement('hr');
     hrElement.classList.add('divider');
     bookElement.appendChild(hrElement);
@@ -67,18 +74,22 @@ const newBook = new BookCollection();
 newBook.addBook('Book3', 'Author3');
 console.log('our books', newBook);
 newBook.displayBooks();
-newBook.saveData();
 
-
-const newBook2 = new BookCollection();
+/* const newBook2 = new BookCollection();
 newBook2.addBook('Book4', 'Author4');
-newBook2.displayBooks();
-newBook2.saveData();
-// let books = [];
-// let nextBookId = 1;
-// const removeBook = (bookID) => {
-//   books = books.filter((book) => book.id !== bookID);
-// };
+console.log('our books', newBook2);
+newBook2.displayBooks(); */
+
+// Save data to the local storage
+  /* saveData() {
+    document.addEventListener('DOMContentLoaded', () => {
+    this.books = getBooksFromStorage() || [];
+    this.nextBookId = this.books.length > 0
+      ? Math.max(...this.books.map((book) => book.id)) + 1
+      : 1;
+    this.displayBooks();
+  });
+} */
 
 // const form = document.querySelector('form');
 // form.addEventListener('submit', (event) => {
