@@ -2,25 +2,15 @@ import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 class BookCollection {
   constructor() {
-    // Retrieve books from localStorage or initialize an empty array
-    this.books = saveBooksToStorage(this.books) || [];
+    this.books = [];
     this.nextBookId = 1;
-    
   }
 
-  // Method to add a book from the collection
+  // Add book method
   addBook(title, author) {
-    const newBook = { 
-      id: this.nextBookId, 
-      title, 
-      author 
-    };
-
+    const newBook = { id: this.nextBookId, title, author };
     this.books.push(newBook);
     this.nextBookId += 1;
-
-    // Save the updated collection to localStorage
-    saveBooksToStorage(this.books);
   }
 
   // Save data to the local storage
@@ -36,11 +26,7 @@ class BookCollection {
 
   // Remove book method
   removeBook(bookID) {
-    // Remove the book at the specified index from the collection
     this.books = this.books.filter((book) => book.id !== bookID);
-
-    // Save the updated collection to localStorage
-    saveBooksToStorage(bookID);
   }
 
   // Display books method
@@ -100,8 +86,3 @@ form.addEventListener('submit', (event) => {
     authorInput.value = '';
   }
 });
-
-const newBook2 = new BookCollection();
-newBook2.addBook('Book4', 'Author4');
-newBook2.displayBooks();
-newBook2.saveData();
