@@ -12,7 +12,7 @@ h1 {
   margin: 1em;
 }
 
-.books-container {
+.books-container:has(.book) {
   border: 2px solid #2d2c2c;
   width: 80vw;
   max-width: 900px;
