@@ -54,7 +54,7 @@ const displayBooks = () => {
 
     // Adding a click event listener to the remove button
     removeButton.addEventListener('click', () => {
-      // Removing the book from the collection and saving it to storage
+      // Removing the book from the collection and saving changes to to storage
       removeBook(book.id);
       saveBooksToStorage(books);
 
