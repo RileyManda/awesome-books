@@ -15,7 +15,7 @@ class BookCollection {
   };
 }
 const newBook = new BookCollection();
-newBook.addBook('Book1', 'Author1')
+newBook.addBook('Book2', 'Author2')
 console.log('our books', newBook);
 // let books = [];
 // let nextBookId = 1;
