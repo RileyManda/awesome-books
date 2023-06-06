@@ -68,7 +68,6 @@ const newBook = new BookCollection();
 newBook.addBook('Book3', 'Author3');
 newBook.displayBooks();
 newBook.saveData();
-console.log('our books', newBook);
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
@@ -88,8 +87,3 @@ form.addEventListener('submit', (event) => {
     authorInput.value = '';
   }
 });
-
-const newBook2 = new BookCollection();
-newBook2.addBook('Book4', 'Author4');
-newBook2.displayBooks();
-newBook2.saveData();
