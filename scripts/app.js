@@ -57,7 +57,7 @@ class BookCollection {
   });
 }
 const newBook = new BookCollection();
-newBook.addBook('Book3', 'Author3');
+newBook.addBook('Book2', 'Author2')
 console.log('our books', newBook);
 newBook.displayBooks();
 newBook.saveData();
