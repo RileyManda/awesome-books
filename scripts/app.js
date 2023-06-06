@@ -1,14 +1,6 @@
 import { getBooksFromStorage } from './storage.js';
 // import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
-// book class declaration
-// class Book {
-//   constructor(title, author) {
-//     this.title = title;
-//     this.author = author;
-//   }
-// }
-
 class BookCollection {
   constructor(title, author) {
     this.title = title;
