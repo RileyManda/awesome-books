@@ -1,5 +1,4 @@
 import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
-// import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 class BookCollection {
   constructor() {
@@ -14,10 +13,23 @@ class BookCollection {
     this.nextBookId += 1;
   }
 
-  // removeBook(bookID) {
-  //   books = books.filter((book) => book.id !== bookID);
-  // }
+  // Save data to the local storage
+  saveData() {
+    document.addEventListener('DOMContentLoaded', () => {
+      this.books = getBooksFromStorage() || [];
+      this.nextBookId = this.books.length > 0
+        ? Math.max(...this.books.map((book) => book.id)) + 1
+        : 1;
+      this.displayBooks();
+    });
+  }
 
+  // Remove book method
+  removeBook(bookID) {
+    this.books = this.books.filter((book) => book.id !== bookID);
+  }
+
+  // Display books method
   displayBooks() {
     const bookContainer = document.querySelector('.books-container');
     bookContainer.innerHTML = '';
@@ -34,9 +46,9 @@ class BookCollection {
       removeButton.classList.add('btn', 'remove');
       removeButton.textContent = 'Remove';
       removeButton.addEventListener('click', () => {
-        // removeBook(book.id);
+        this.removeBook(book.id);
         saveBooksToStorage(this.books);
-        // displayBooks();
+        this.displayBooks();
       });
       const hrElement = document.createElement('hr');
       hrElement.classList.add('divider');
@@ -48,42 +60,34 @@ class BookCollection {
       bookContainer.appendChild(bookElement);
     });
   }
-
-  saveData = document.addEventListener('DOMContentLoaded', () => {
-    this.books = getBooksFromStorage() || [];
-    this.nextBookId =
-      this.books.length > 0
-        ? Math.max(...this.books.map((book) => book.id)) + 1
-        : 1;
-    // displayBooks();
-  });
 }
+
 const newBook = new BookCollection();
 newBook.addBook('Book3', 'Author3');
-console.log('our books', newBook);
 newBook.displayBooks();
 newBook.saveData();
-// let books = [];
-// let nextBookId = 1;
-// const removeBook = (bookID) => {
-//   books = books.filter((book) => book.id !== bookID);
-// };
+console.log('our books', newBook);
 
-// const form = document.querySelector('form');
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault();
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-//   const titleInput = document.getElementById('title');
-//   const authorInput = document.getElementById('author');
-//   const title = titleInput.value;
-//   const author = authorInput.value;
+  const titleInput = document.getElementById('title');
+  const authorInput = document.getElementById('author');
+  const title = titleInput.value;
+  const author = authorInput.value;
 
-//   if (title && author) {
-//     addBook(title, author);
-//     saveBooksToStorage(books);
-//     displayBooks();
+  if (title && author) {
+    newBook.addBook(title, author);
+    saveBooksToStorage(newBook.books);
+    newBook.displayBooks();
 
-//     titleInput.value = '';
-//     authorInput.value = '';
-//   }
-// });
+    titleInput.value = '';
+    authorInput.value = '';
+  }
+});
+
+const newBook2 = new BookCollection();
+newBook2.addBook('Book4', 'Author4');
+newBook2.displayBooks();
+newBook2.saveData();
