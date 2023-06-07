@@ -119,11 +119,10 @@ input {
   display: inline;
 }
 
-
 /* ========= FOOTER =========*/
 footer {
   position: fixed;
-  bottom: 0;
+  bottom: 4px;
   left: 50%;
   width: 97%;
   padding: 1em 2em;
