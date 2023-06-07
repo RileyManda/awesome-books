@@ -66,10 +66,9 @@ class BookCollection {
 }
 
 const newBook = new BookCollection();
-newBook.addBook('Book3', 'Author3');
+newBook.addBook();
 newBook.displayBooks();
 newBook.saveData();
-console.log('our books', newBook);
 
 // Event listener for the form submission
 const form = document.querySelector('form');
