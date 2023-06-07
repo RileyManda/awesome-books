@@ -26,28 +26,27 @@
 
 .row-list li {
   margin-left: 10px;
+  position: relative;
 }
 
 .row-list li:first-child {
   margin-left: 0;
 }
 
-.row-list li:not(:last-child) {
-  border-right: 1px solid #ccc;
-  padding-right: 20px;
+.row-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 70%;
+  background-color: #ccc;
 }
 
 .row-list li a {
   text-decoration: none;
   color: #000;
-}
-
-.row-list li:nth-child(2)::before,
-.row-list li:nth-child(3)::before {
-  content: "";
-  border-left: 1px solid #ccc;
-  height: 100%;
-  margin-right: 30px;
 }
 
 .navbar,
