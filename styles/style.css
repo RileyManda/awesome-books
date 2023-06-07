@@ -193,6 +193,15 @@ input {
   margin-bottom: 2em;
 }
 
+/* === CONTACT SECTION === */
+#contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
 /* ========= FOOTER ========= */
 footer {
   position: fixed;
