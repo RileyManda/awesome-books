@@ -1,3 +1,4 @@
+// Importing functions from './storage.js'
 import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 class BookCollection {
@@ -65,26 +66,61 @@ class BookCollection {
 }
 
 const newBook = new BookCollection();
-newBook.addBook('Book3', 'Author3');
-newBook.displayBooks();
 newBook.saveData();
-console.log('our books', newBook);
 
+// Event listener for the form submission
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
+  // Preventing the default form submission behavior
   event.preventDefault();
 
+  // Retrieving the title and author input elements
   const titleInput = document.getElementById('title');
   const authorInput = document.getElementById('author');
+
+  // Extracting the values of the title and author inputs
   const title = titleInput.value;
   const author = authorInput.value;
 
+  // Checking if both title and author have values
   if (title && author) {
     newBook.addBook(title, author);
     saveBooksToStorage(newBook.books);
     newBook.displayBooks();
 
+    // Resetting the title and author input fields
     titleInput.value = '';
     authorInput.value = '';
   }
 });
+
+// decare variable to store menulinks
+const menulinks = document.querySelectorAll('.row-list li a');
+// section navigation
+menulinks.forEach((menulink) => {
+  menulink.addEventListener('click', (event) => {
+    event.preventDefault();
+    const sectionId = menulink.dataset.section;
+    const sections = document.querySelectorAll('.section-container');
+
+    sections.forEach((section) => {
+      section.classList.remove('active');
+    });
+    menulinks.forEach((link) => {
+      link.classList.remove('active');
+    });
+
+    document.getElementById(sectionId).classList.add('active');
+    menulink.classList.add('active');
+  });
+});
+
+// Function for the date time
+const dateTime = document.querySelector('#datetime');
+const timeDate = () => {
+  setInterval(() => {
+    const date = new Date().toUTCString();
+    dateTime.innerHTML = date.toString().substring(0, date.indexOf('GMT'));
+  }, 0);
+};
+timeDate();

@@ -9,20 +9,60 @@
     <title>AwesomeBooks</title>
 </head>
 
-<body>
-    <h1>All awesome books</h1>
-    <!-- global book container -->
-    <div class="books-container" id="books-container"></div>
-    <div class="divider"></div>
-    <form>
-        <p>Add a new book</p>
-        <input id="title" type="text" placeholder="Title" class="input-field" required /> <br> <br>
-    
-        <input id="author" type="text" placeholder="Author" class="input-field" required /> <br> <br>
 
-        <button type="submit" id="submit-btn" class="btn submit">Add</button>
+
+<body>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <a class="logo" href="#">Awesome Books</a>
+            <ul class="row-list">
+                <li><a class="active" href="#" data-section = "book-section">List</a></li>
+                <li><a href="#" data-section = "add-book-section">Add new</a></li>
+                <li><a href="#" data-section = "contact-section">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="date-time">
+            <p id="datetime"></p>
+        </div>
+    </div>
+    <main>
+        <!-- global book container -->
         
-    </form>
+        <section class="section-container active " id="book-section">
+            <h1>All awesome books</h1>
+            <div class="books-container" id="books-container"></div>
+        </section>
+
+        <section class="section-container " id="add-book-section">
+            <form>
+                <h2>Add a new book</h2>
+                <input id="title" type="text" placeholder="Title" class="input-field" required /> <br> <br>
+
+                <input id="author" type="text" placeholder="Author" class="input-field" required /> <br> <br>
+
+                <button type="submit" id="submit-btn" class="btn submit">Add</button>
+
+            </form>
+
+        </section>
+
+        <section class="section-container" id="contact-section">
+            <h2>Contact information</h2>
+            <p>Do you have any questions or you just want to say "Hello" <br> &ThinSpace;You can reach out to us!</p>
+            <ul>
+                <li>Our e-mail: mail@mail.com</li>
+                <li>Our phone number: 0043586534422</li>
+                <li>Our address: Streetname 22, 84503, City, Country</li>
+            </ul>
+        </section>
+        
+
+
+    </main>
+
+    <footer>
+        <p>Copyright &ThickSpace;&ThinSpace; ...</p>
+    </footer>
 
     <script type="module" src="./scripts/storage.js"></script>
     <script type="module" src="./scripts/app.js"></script>
