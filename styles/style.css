@@ -9,6 +9,8 @@
 .navbar {
   display: flex;
   align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
 .navbar .logo {
@@ -20,9 +22,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: auto;
-
-  /* Align row list to the right */
 }
 
 .row-list li {
@@ -36,6 +35,14 @@
 .row-list li a {
   text-decoration: none;
   color: #000;
+}
+
+.navbar,
+.row-list {
+  border: 1px solid #ccc;
+  /* Add border to navbar and row list */
+  padding: 10px;
+  /* Add padding to navbar and row list */
 }
 
 ::placeholder {
