@@ -24,6 +24,7 @@
   - [Run tests](#run-tests)
   - [Deployment](#deployment)
 - [👥 Authors](#authors)
+- [👥 Attribution](#attribution)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
@@ -193,8 +194,6 @@ This project was deployed using GitHub Pages. For more information about how to 
 <!-- AUTHORS -->
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Nelly Telli**
 - GitHub: [@lily4178993](https://github.com/lily4178993/)
 - Twitter: [@nelly_telli](https://twitter.com/nelly_telli)
@@ -220,6 +219,10 @@ This project was deployed using GitHub Pages. For more information about how to 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <br><hr>
+
+<!-- ATTRIBUTION -->
+## 👥 Attribution <a name="attribution"></a>
+- ProjectIcon: [Svgrepo](https://www.svgrepo.com/svg/249120/books-book)
 <!-- CONTRIBUTING -->
 
 ## <b>Contributing 🤝</b><a name="contributing"></a>
@@ -230,6 +233,8 @@ Remember, every contribution, no matter how big or small, makes a difference.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <br><hr>
+
+
 
 <!-- SUPPORT -->
 ## <b>Show your support 🌟</b><a name="support"></a>

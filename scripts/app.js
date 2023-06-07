@@ -1,3 +1,4 @@
+// Importing functions from './storage.js'
 import { getBooksFromStorage, saveBooksToStorage } from './storage.js';
 
 class BookCollection {
@@ -65,25 +66,31 @@ class BookCollection {
 }
 
 const newBook = new BookCollection();
-newBook.addBook('Book3', 'Author3');
+newBook.addBook();
 newBook.displayBooks();
 newBook.saveData();
-console.log('our books', newBook);
 
+// Event listener for the form submission
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
+  // Preventing the default form submission behavior
   event.preventDefault();
 
+  // Retrieving the title and author input elements
   const titleInput = document.getElementById('title');
   const authorInput = document.getElementById('author');
+
+  // Extracting the values of the title and author inputs
   const title = titleInput.value;
   const author = authorInput.value;
 
+  // Checking if both title and author have values
   if (title && author) {
     newBook.addBook(title, author);
     saveBooksToStorage(newBook.books);
     newBook.displayBooks();
 
+    // Resetting the title and author input fields
     titleInput.value = '';
     authorInput.value = '';
   }
