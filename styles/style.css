@@ -69,13 +69,6 @@ a.active:is(:link, :active, :focus) {
   font-size: 1rem;
 }
 
-h1 {
-  font-weight: 500;
-  font-size: 2rem;
-  text-align: center;
-  margin: 1em;
-}
-
 .books-container:has(.book) {
   border: 2px solid #2d2c2c;
   width: 60vw;
@@ -185,6 +178,15 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 3px solid #7e7ee6;
+}
+
+.section-container h1,
+.section-container h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1em;
 }
 
 /* ========= FOOTER ========= */
