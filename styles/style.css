@@ -93,7 +93,10 @@ a.active:is(:link, :active, :focus) {
   border: 2px solid var(--books-container-color);
   width: 60vw;
   max-width: 500px;
-  margin: 4em auto;
+  height: auto;
+  max-height: 65vh;
+  margin: auto;
+  overflow-y: auto;
 }
 
 .book {
@@ -191,7 +194,7 @@ input {
   display: block;
   position: fixed;
   width: 97%;
-  height: auto;
+  height: 500px;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -20%);
