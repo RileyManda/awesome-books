@@ -202,6 +202,10 @@ input {
   font-weight: 600;
 }
 
+#contact-section ul {
+  margin-top: 1.5em;
+}
+
 /* ========= FOOTER ========= */
 footer {
   position: fixed;
