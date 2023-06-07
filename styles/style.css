@@ -8,12 +8,13 @@
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: 1px solid #ccc;
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
 
-.navbar .logo {
+.navbar__logo {
   font-weight: bold;
 }
 
@@ -27,10 +28,6 @@
 .row-list li {
   margin-left: 10px;
   position: relative;
-}
-
-.row-list li:first-child {
-  margin-left: 0;
 }
 
 .row-list li:not(:last-child)::after {
