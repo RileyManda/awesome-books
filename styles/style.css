@@ -83,9 +83,9 @@ a.active:is(:link, :active, :focus) {
 
 .date-time {
   position: fixed;
-  top: 8%;
+  bottom: -50%;
   font-size: 12px;
-  right: 20px;
+  right: 0;
   font-weight: 600;
 }
 
