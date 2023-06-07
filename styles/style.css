@@ -172,13 +172,16 @@ input {
 
 /* ========= SECTIONS ========= */
 .section-container {
-  /* position: fixed; */
+  display: none;
+}
+.section-container.active {
+  display: block;
+  position: fixed;
   width: 97%;
   height: auto;
-  /* top: 50%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, -50%); */
-  border: 3px solid #7e7ee6;
+  transform: translate(-50%, -20%);
 }
 
 .section-container h1,
@@ -194,7 +197,7 @@ input {
 }
 
 /* === CONTACT SECTION === */
-#contact-section {
+.section-container.active#contact-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
