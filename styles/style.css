@@ -7,12 +7,13 @@
 
 .navbar-container {
   position: fixed;
-  border: 1px solid #ccc;
   padding: 10px;
   top: 4px;
   left: 50%;
   width: 97%;
   transform: translateX(-50%);
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .navbar {
@@ -45,12 +46,17 @@
   transform: translateY(-50%);
   width: 1px;
   height: 70%;
-  background-color: #ccc;
+  background-color: #000;
 }
 
 .row-list li a {
   text-decoration: none;
   color: #000;
+  font-weight: 700;
+}
+
+a.active:is(:link, :active, :focus) {
+  color: #7e7ee6;
 }
 
 ::placeholder {
