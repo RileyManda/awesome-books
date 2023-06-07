@@ -81,6 +81,14 @@ a.active:is(:link, :active, :focus) {
   font-size: 1rem;
 }
 
+.date-time {
+  position: fixed;
+  top: 8%;
+  font-size: 12px;
+  right: 20px;
+  font-weight: 600;
+}
+
 .books-container:has(.book) {
   border: 2px solid var(--books-container-color);
   width: 60vw;
