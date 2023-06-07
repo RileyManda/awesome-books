@@ -177,6 +177,16 @@ input {
   display: inline;
 }
 
+/* ========= SECTIONS ========= */
+.section-container {
+  position: fixed;
+  width: 97%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* ========= FOOTER ========= */
 footer {
   position: fixed;
