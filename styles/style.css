@@ -1,3 +1,11 @@
+:root {
+  --dark-color: #000;
+  --active-color: #7e7ee6;
+  --books-container-color: #2d2c2c;
+  --book-nth-item-color: #989898;
+  --box-shadow-color: #000000d4;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +24,7 @@ a {
   left: 50%;
   width: 97%;
   transform: translateX(-50%);
-  border: 2px solid #000;
+  border: 2px solid var(--dark-color);
   border-radius: 4px;
 }
 
@@ -27,7 +35,7 @@ a {
 
 .navbar .logo {
   font-weight: bold;
-  color: #000;
+  color: var(--dark-color);
 }
 
 .row-list {
@@ -51,33 +59,30 @@ a {
   transform: translateY(-50%);
   width: 1px;
   height: 70%;
-  background-color: #000;
+  background-color: var(--dark-color);
 }
 
 .row-list li a {
-  color: #000;
+  color: var(--dark-color);
   font-weight: 700;
 }
 
+.row-list li a.active {
+  color: var(--active-color);
+}
+
 a.active:is(:link, :active, :focus) {
-  color: #7e7ee6;
+  color: var(--active-color);
 }
 
 ::placeholder {
-  color: #000;
+  color: var(--dark-color);
   font-weight: 500;
   font-size: 1rem;
 }
 
-h1 {
-  font-weight: 500;
-  font-size: 2rem;
-  text-align: center;
-  margin: 1em;
-}
-
 .books-container:has(.book) {
-  border: 2px solid #2d2c2c;
+  border: 2px solid var(--books-container-color);
   width: 60vw;
   max-width: 500px;
   margin: 4em auto;
@@ -93,7 +98,7 @@ h1 {
 }
 
 .book:nth-child(odd) {
-  background-color: #989898;
+  background-color: var(--book-nth-item-color);
 }
 
 .book-item {
@@ -137,16 +142,8 @@ h1 {
 
 .btn {
   padding: 0.5em 0.7em;
-  border: 2px solid #000;
-  box-shadow: 0 4px 3px 0 #000000d4;
-}
-
-.divider {
-  width: 200px;
-  height: 4px;
-  background-color: #000;
-  border-radius: 50%;
-  margin: 1em auto;
+  border: 2px solid var(--dark-color);
+  box-shadow: 0 4px 3px 0 var(--box-shadow-color);
 }
 
 form {
@@ -168,13 +165,53 @@ form p {
 input {
   width: 100%;
   padding: 0.5em;
-  border: 2px solid #000;
+  border: 2px solid var(--dark-color);
   border-radius: 4px;
-  outline: #000;
+  outline: var(--dark-color);
 }
 
 .btn.submit {
   display: inline;
+}
+
+/* ========= SECTIONS ========= */
+.section-container {
+  display: none;
+}
+
+.section-container.active {
+  display: block;
+  position: fixed;
+  width: 97%;
+  height: auto;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+.section-container h1,
+.section-container h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1em;
+}
+
+.section-container h2 {
+  margin-bottom: 2em;
+}
+
+/* === CONTACT SECTION === */
+.section-container.active#contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+#contact-section ul {
+  margin-top: 1.5em;
 }
 
 /* ========= FOOTER ========= */
@@ -183,8 +220,8 @@ footer {
   bottom: 4px;
   left: 50%;
   width: 97%;
-  padding: 1em 2em;
-  border: 2px solid #000;
+  padding: 10px 2em;
+  border: 2px solid var(--dark-color);
   border-radius: 4px;
   transform: translateX(-50%);
   font-size: 1.2rem;
