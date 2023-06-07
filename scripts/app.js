@@ -92,24 +92,24 @@ form.addEventListener('submit', (event) => {
     authorInput.value = '';
   }
 });
+
 // decare variable to store menulinks
 const menulinks = document.querySelectorAll('.row-list li a');
-
 // section navigation
-menulinks.forEach((menulinks) => {
-  menulinks.addEventListener('click', (event) => {
+menulinks.forEach((menulink) => {
+  menulink.addEventListener('click', (event) => {
     event.preventDefault();
-    const sectionId = menulinks.dataset.section;
+    const sectionId = menulink.dataset.section;
     const sections = document.querySelectorAll('.section-container');
 
     sections.forEach((section) => {
       section.classList.remove('active');
-      menulinks.classList.remove('active');
     });
+    menulinks.forEach((link) => {
+      link.classList.remove('active');
+    });
+
     document.getElementById(sectionId).classList.add('active');
-    menulinks.classList.add('active');
-    // if (sectionId !== 'active') {
-    //   menulinks.classList.add('active');
-    // }
+    menulink.classList.add('active');
   });
 });
