@@ -197,9 +197,8 @@ This project was deployed using GitHub Pages. For more information about how to 
 <!-- FUTURE FEATURES -->
 ## <b>Future Features 🔭</b><a name="future-features"></a>
 
-- [ ] **Add a new book to the collection**
-- [ ] **Display all books saved in the collection**
-- [ ] **Remove a book from the collection**
+- [ ] **Make the app responsive**
+- [ ] **Implement editing a book**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
