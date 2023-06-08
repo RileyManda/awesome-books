@@ -120,6 +120,7 @@ Clone this repository to your desired folder:<br>
   - Navigate to the folder
 ```
 cd my-folder
+cd awesome-books
 ```
 - Checkout the branch
 ```
@@ -140,12 +141,7 @@ Install all dependencies:
 <!-- USAGE -->
 ### <b>Usage 📂</b><a name="usage"></a>
 
-To run the project, follow these instructions:
-
-- You have to clone this repo to your local machine.
-```
-git clone https://github.com/RileyManda/awesome-books.git
-```
+To run the project, open index.html to your preferred browser.
 
 <!-- TESTS -->
 <br><hr>
@@ -153,12 +149,6 @@ git clone https://github.com/RileyManda/awesome-books.git
 
 How should it be tested? 
 To run tests, run the following command:
-
-- HTML linter errors run:
-
-```
-npx hint . --fix
-```
 
 - CSS linter errors run:
 
@@ -172,11 +162,6 @@ npx stylelint "**/*.{css,scss}" --fix
 npx eslint . --fix
 ```
 
-- For unit testing, run:
-
-```
-npm test
-```
 <br><hr>
 
 <!-- DEPLOYEMENT -->
