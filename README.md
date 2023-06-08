@@ -85,7 +85,7 @@
 <!-- LIVE DEMO -->
 ## <b>Live Demo 🚀</b><a name="live-demo"></a>
 
-- [Live Demo Link](https://)
+This project is hosted on [GitHub pages](#deployment), so if you want to check it online, please 😊 [here](https://rileymanda.github.io/awesome-books/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <hr>
