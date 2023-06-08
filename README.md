@@ -59,7 +59,7 @@
 <details>
   <summary>Javascript runtime environment</summary>
   <ul>
-    <li><a href="">Node JS</a> as a javascript runtime machine [git], a free and open source distributed version control system</li>
+    <li><a href="https://nodejs.org">Node JS</a> as a javascript runtime machine [git], a free and open source distributed version control system</li>
   </ul>
 </details>
 
