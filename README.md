@@ -59,7 +59,7 @@
 <details>
   <summary>Javascript runtime environment</summary>
   <ul>
-    <li><a href="">Node JS</a> as a javascript runtime machine [git], a free and open source distributed version control system</li>
+    <li><a href="https://nodejs.org">Node JS</a> as a javascript runtime machine [git], a free and open source distributed version control system</li>
   </ul>
 </details>
 
@@ -85,7 +85,7 @@
 <!-- LIVE DEMO -->
 ## <b>Live Demo 🚀</b><a name="live-demo"></a>
 
-- [Live Demo Link](https://)
+This project is hosted on [GitHub pages](#deployment), so if you want to check it online, please 😊 [here](https://rileymanda.github.io/awesome-books/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <hr>
@@ -120,6 +120,7 @@ Clone this repository to your desired folder:<br>
   - Navigate to the folder
 ```
 cd my-folder
+cd awesome-books
 ```
 - Checkout the branch
 ```
@@ -140,12 +141,7 @@ Install all dependencies:
 <!-- USAGE -->
 ### <b>Usage 📂</b><a name="usage"></a>
 
-To run the project, follow these instructions:
-
-- You have to clone this repo to your local machine.
-```
-git clone https://github.com/RileyManda/awesome-books.git
-```
+To run the project, open index.html to your preferred browser.
 
 <!-- TESTS -->
 <br><hr>
@@ -153,12 +149,6 @@ git clone https://github.com/RileyManda/awesome-books.git
 
 How should it be tested? 
 To run tests, run the following command:
-
-- HTML linter errors run:
-
-```
-npx hint . --fix
-```
 
 - CSS linter errors run:
 
@@ -172,11 +162,6 @@ npx stylelint "**/*.{css,scss}" --fix
 npx eslint . --fix
 ```
 
-- For unit testing, run:
-
-```
-npm test
-```
 <br><hr>
 
 <!-- DEPLOYEMENT -->
@@ -212,9 +197,8 @@ This project was deployed using GitHub Pages. For more information about how to 
 <!-- FUTURE FEATURES -->
 ## <b>Future Features 🔭</b><a name="future-features"></a>
 
-- [ ] **Add a new book to the collection**
-- [ ] **Display all books saved in the collection**
-- [ ] **Remove a book from the collection**
+- [ ] **Make the app responsive**
+- [ ] **Implement editing a book**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -279,7 +263,5 @@ We would like to express our sincere gratitude to [Microverse](https://github.co
 ## <b>License 📝</b><a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
